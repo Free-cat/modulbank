@@ -1,5 +1,5 @@
 module ModulBank
-  class Client
+  module PaymentGateway
     module Transaction
 
       def transaction(transaction_id, merchant)
