@@ -1,9 +1,9 @@
 module ModulBank
   module PaymentGateway
     module Singnature
-      def sign(args = {}, secret_key = '')
+      def sign(args: {}, secret_key: '')
         line = args.compact
-                   .transform_values! { |value| Base64.encode64(value.to_s).gsub(/\s/, '') }
+                   .transform_values! { |value| Base64.encode64(value.to_s).gsub("\n", "") }
                    .sort
                    .map { |pair| pair.join('=') }.join('&')
 

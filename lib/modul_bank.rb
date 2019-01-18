@@ -2,8 +2,8 @@ require "httparty"
 require 'base64'
 require 'modul_bank/configuration'
 require "modul_bank/version"
-require "modul_bank/payment_gatewat/transaction"
-require 'modul_bank/payment_gatewat/singnature'
+require "modul_bank/payment_gateway/transaction"
+require 'modul_bank/payment_gateway/singnature'
 require "modul_bank/client"
 
 

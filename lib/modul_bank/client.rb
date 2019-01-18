@@ -3,7 +3,12 @@ module ModulBank
     include ModulBank::PaymentGateway::Singnature
 
     def initialize
-      @secret_key = ModulBank.configuration.secret_key
+      @options = {
+          secret_key: ModulBank.configuration.secret_key,
+          merchant: ModulBank.configuration.merchant,
+          fail_url: ModulBank.configuration.fail_url,
+          success_url: ModulBank.configuration.success_url
+      }
     end
 
     def get(path, params = {})
@@ -19,7 +24,7 @@ module ModulBank
     end
 
     def options(params)
-      params.merge(signature: sign(params, @secret_key))
+      params.merge(signature: sign(args: params, secret_key: @options[:secret_key])).merge(@options).to_h
     end
   end
 end
