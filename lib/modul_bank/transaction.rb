@@ -3,8 +3,7 @@ module ModulBank
     module Transaction
 
       def transaction(transaction_id, merchant)
-        response = get("/api/v1/transaction", {:transaction_id => transaction_id, :merchant => merchant, :unix_timestamp => Time.now.to_i})
-        response
+        get("/api/v1/transaction", {:transaction_id => transaction_id, :merchant => merchant, :unix_timestamp => Time.now.to_i})
       end
 
     end
